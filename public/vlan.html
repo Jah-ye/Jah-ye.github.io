@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title> Brukerveiledning: Lage VLAN i Packet Tracer</title>
+<link rel="icon" href="/public/images/pt.logo.png" type="logo" />
+<link rel="stylesheet" href="vlan.css"/>
+</head>
+<body>
+
+<header>
+    <img src="/public/images/pt.logo.png" alt="Packet Tracer Logo"/>
+    <h1>Brukerveiledning: Lage en VLAN i Cisco Packet Tracer</h1>
+    <nav>
+        <ul>
+            <li><a href="#introduksjon">Introduksjon</a></li>
+            <li><a href="#forberedelser">Forberedelser</a></li>
+            <li><a href="#oppsett">Oppsett av VLAN</a></li>
+            <li><a href="#konfigurasjon">Konfigurasjon</a></li>
+            <li><a href="#bekreftelse">Bekreftelse</a></li>
+            <li><a href="#feilsok">Feilsøking</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="introduksjon">
+    <div class="content">
+        <h2>Introduksjon</h2>
+        <p>En VLAN (Virtual Local Area Network) gjør det mulig å segmentere et fysisk nettverk i flere logiske nettverk. Dette forbedrer sikkerheten, trafikkontroll og administering av nettverker. Denne veiledningen viser deg hvordan du oppretter og konfigurerer VLAN-er på en switch i Cisco Packet Tracer.</p>
+        <p>Du vil lære å:</p>
+        <ul>
+            <li>Opprette VLAN-er</li>
+            <li>Tilordne porter til VLAN-er</li>
+            <li>Bekrefte konfigurasjonen</li>
+        </ul>
+    </div>
+</section>
+
+<section id="forberedelser">
+    <div class="content">
+        <h2>Forberedelser</h2>
+        <p>Før du begynner, sørg for at du har:</p>
+        <ul>
+            <li>Nedlastet og åpnet Cisco Packet Tracer. (Klikk <a href="https://www.netacad.com/courses/packet-tracer" target="_blank"><strong>her</strong></a> for å laste ned)</li>
+            <li>En switch (f.eks. Cisco 2960) plassert i arbeidsområdet.</li>
+            <li>Flere PC-er koblet til switchen med <strong>Copper straight-through</strong> kabler.</li>
+        </ul>
+        <p>Planlegg hvilke PC-er som skal tilhøre hvilke VLAN-er, og koble dem til passende porter på switchen.</p>
+    </div>
+</section>
+
+<section id="oppsett">
+    <div class="content">
+        <h2>Oppsett av VLAN</h2>
+        <p>Sørg for at alle kabler og enheter er riktig koblet før du begynner på konfigurasjonen.</p>
+        <p>Det anbefales å dokumentere hvilke porter som skal tilhøre hver VLAN. F.eks.:</p>
+        <ul>
+            <li>Port 1-4: VLAN 10 (for eksempel, ansatte)</li>
+            <li>Port 5-8: VLAN 20 (for eksempel, gjester)</li>
+        </ul>
+    </div>
+</section>
+
+<section id="konfigurasjon">
+    <div class="content">
+        <h2>Konfigurasjon - steg for steg</h2>
+        <h3>1. Åpne Switchens CLI</h3>
+        <p>Klikk på switchen i Packet Tracer, velg "CLI"-fanen for å skrive inn kommandolinje.</p>
+
+        <h3>2. Gå inn i privilegert modus</h3>
+        <pre>enable</pre>
+
+        <h3>3. Gå inn i global konfigurasjonsmodus</h3>
+        <pre>configure terminal</pre>
+
+        <h3>4. Opprett VLAN-er</h3>
+        <p>Lag VLAN 10 og 20 (eller flere etter behov):</p>
+        <pre>vlan 10
+name VLAN10
+exit
+vlan 20
+name VLAN20
+exit</pre>
+
+        <h3>5. Tildel porter til VLAN-er</h3>
+        <p>Velg en port og sett den i access-modus med riktig VLAN:</p>
+        <pre>interface FastEthernet0/1
+switchport mode access
+switchport access vlan 10
+exit
+
+interface FastEthernet0/2
+switchport mode access
+switchport access vlan 10
+exit
+
+interface FastEthernet0/5
+switchport mode access
+switchport access vlan 20
+exit</pre>
+
+        <h3>6. Lagre konfigurasjonen</h3>
+        <pre>write memory</pre>
+        <p>Dette lagrer konfigurasjonen i switchens minne.</p>
+    </div>
+    <div class="sidebar">
+        <h3>Tips:</h3>
+        <ul>
+            <li>Bruk kommandoen <code>show vlan brief</code> for å sjekke VLAN-ene.</li>
+            <li>Bruk <code>show interfaces switchport</code> for å se hvilke porter som er tilordnet VLAN.</li>
+        </ul>
+    </div>
+</section>
+
+<section id="bekreftelse">
+    <div class="content">
+        <h2>Bekreftelse</h2>
+        <p>Etter konfigurasjon kan du verifisere at VLAN-ene er opprettet og porter er riktig tildelt:</p>
+        <ul>
+            <li><strong>Se VLAN-ene:</strong></li>
+            <pre>show vlan brief</pre>
+            <li><strong>Se port-tilordning:</strong></li>
+            <pre>show interfaces switchport</pre>
+        </ul>
+        <p>Sjekk at portene er i riktig VLAN og at VLAN-ene er oppført korrekt.</p>
+    </div>
+</section>
+
+<section id="feilsok">
+    <div class="content">
+        <h2>Feilsøking</h2>
+        <p>Hvis VLAN ikke fungerer som forventet, prøv følgende:</p>
+        <ul>
+            <li>Sjekk at portene er riktig tildelt VLAN med <code>show vlan brief</code>.</li>
+            <li>Bekreft at PC-ene har riktig IP-konfigurasjon og tilhører riktig subnett.</li>
+            <li>Kontroller at portene er i access-modus og riktig VLAN.</li>
+            <li>Se etter eventuelle feil i konfigurasjonen og rett opp.</li>
+        </ul>
+    </div>
+</section>
+</body>
+</html> 

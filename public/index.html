@@ -2,116 +2,180 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>OSI-modellen og guide i PT</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Brukerveiledning: OSI-modellen</title>
+ <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 40px;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 8px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            color: #e74c3c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* Responsiveness for mobile */
+        @media (max-width: 768px) {
+            body {
+                margin: 20px;
+            }
+            .container {
+                padding: 20px;
+            }
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Brukerveiledning: OSI-modellen (Lag 1, 2 og 3)</h1>
 
-<header>
-    <h1>Brukerveiledning: OSI-modellen (Lag 1-3) og VLAN i Cisco Packet Tracer</h1>
-    <p class="intro">Dypdykk i nettverksmodellene, simulering og konfigurasjon av VLANs med moderne design.</p>
-</header>
-
-<main>
-    <section class="content-section">
-        <h2>Introduksjon</h2>
-        <p>Dette brukerveiledningen dekker de grunnleggende og avanserte aspektene av OSI-modellen, hvordan du bruker Cisco Packet Tracer for simulering, og hvordan du konfigurerer VLAN for segmentering av nettverket.</p>
-    </section>
-
-    <section class="content-section">
-        <h2>OSI-modellen: Lag 1-3</h2>
-        <div class="accordion">
-            <div class="accordion-item">
-                <button class="accordion-header">Lag 1: Fysisk lag</button>
-                <div class="accordion-content">
-                    <ul>
-                        <li><strong>Funksjon:</strong> Overføring av rå bitstrømmer over fysiske medier (kabel, fiber, trådløst).</li>
-                        <li><strong>Enheter:</strong> Kabler, repeatere, hubs.</li>
-                        <li><strong>Protokoller:</strong> Ingen protokoller, men spesifikasjoner for elektrisk/optisk signalering.</li>
-                        <li><strong>Viktig å vite:</strong> Ingen adressering eller logikk, kun overføring av bitstrøm.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">Lag 2: Data Link-laget</button>
-                <div class="accordion-content">
-                    <ul>
-                        <li><strong>Funksjon:</strong> Sikrer pålitelig overføring av rammer mellom enheter på samme nettverk. Håndterer feilkontroll og rammeavstemming.</li>
-                        <li><strong>Enheter:</strong> Switcher, nettverkskort.</li>
-                        <li><strong>Protokoller:</strong> Ethernet, MAC-adressering.</li>
-                        <li><strong>Viktig å vite:</strong> Lagrer MAC-adresser i MAC-tabell, styrer rammeoverføring.</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">Lag 3: Nettverkslaget</button>
-                <div class="accordion-content">
-                    <ul>
-                        <li><strong>Funksjon:</strong> Ruting av pakker mellom ulike nettverk, IP-adressering.</li>
-                        <li><strong>Enheter:</strong> Ruter, lag 3-switcher.</li>
-                        <li><strong>Protokoller:</strong> IP, ICMP, OSPF, BGP.</li>
-                        <li><strong>Viktig å vite:</strong> Håndterer IP-adresser, rutingtabeller, og path selection.</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="section">
+            <h2>Hva er OSI-modellen?</h2>
+            <p>OSI-modellen er en måte å forstå hvordan data beveger seg i et nettverk. Den deler opp prosessen i syv lag, hvor hvert lag har sin egen funksjon.</p>
         </div>
-    </section>
 
-    <section class="content-section">
-        <h2>Simulering i Cisco Packet Tracer</h2>
-        <h3>Oppsett</h3>
-        <ol>
-            <li>Legg til en PC, switch og ruter i arbeidsområdet.</li>
-            <li>Koble enhetene med passende kabler (straight-through for PC til switch, switch til ruter).</li>
-        </ol>
-
-        <h3>Konfigurasjon av VLAN</h3>
-        <div class="code-box">
-            <h4>Trinn 1: Opprette VLAN på switchen</h4>
-            <pre><code>enable
-configure terminal
-vlan 10
-name VLAN10
-exit</code></pre>
-
-            <h4>Trinn 2: Tildele porter til VLAN</h4>
-            <pre><code>interface FastEthernet0/1
-switchport mode access
-switchport access vlan 10
-exit</code></pre>
-
-            <h4>Trinn 3: Konfigurere PC-er</h4>
-            <pre><code>På PC-ene, gå til Desktop → IP Configuration
-Gi PC-ene IP-adresser i samme subnett som VLANet ditt, for eksempel:
-PC0:192.168.0.1/24
-PC1:192.168.0.2/24
-Standard gateway: 192.168.0.254</code></pre>
-
-            <h4>Trinn 4: Teste tilkoblingen</h4>
-            <pre><code>Pinge mellom PC-ene for å verifisere at de kan kommunisere innenfor VLANet.</code></pre>
-
-
+        <div class="section">
+            <h2>Lag 1: Fysisk lag</h2>
+            <p><strong>Hva gjør det?</strong><br>
+            Dette er det laveste laget i modellen. Det handler om den fysiske overføringen av data, som kabler, kabling, signaler og maskinvare.</p>
+            <p><strong>Eksempler:</strong></p>
+            <ul>
+                <li>Ethernet-kabler</li>
+                <li>Signaler (elektriske, optiske)</li>
+                <li>Nettverkskort</li>
+            </ul>
+            <p><strong>Hvordan det påvirker deg:</strong><br>
+            Hvis det er problemer med kabler eller maskinvare, kan du oppleve tap av nettverkstilkobling.</p>
         </div>
-    </section>
 
-    <section class="content-section">
-        <h2>Oppsummering</h2>
-        <ul>
-            <li><strong>Lag 1</strong> (Fysisk): Kabler og signaler.</li>
-            <li><strong>Lag 2</strong> (Data Link): MAC-adresser, VLAN.</li>
-            <li><strong>Lag 3</strong> (Nettverk): IP-adresser, ruting.</li>
-            <li><strong>Packet Tracer</strong> brukes til å simulere og teste disse lagene.</li>
-            <li><strong>VLANs</strong> segmenterer nettverket logisk, og kan konfigureres via CLI på switcher.</li>
-        </ul>
-    </section>
-</main>
+        <div class="section">
+            <h2>Lag 2: Data-link-laget</h2>
+            <p><strong>Hva gjør det?</strong><br>
+            Dette laget sørger for pålitelig overføring av data mellom to enheter i samme nettverk. Det håndterer feilkontroll og adressering (MAC-adresser).</p>
+            <p><strong>Eksempler:</strong></p>
+            <ul>
+                <li>Ethernet-rammer</li>
+                <li>MAC-adresser</li>
+                <li>Feilkontroll og feilretting</li>
+            </ul>
+            <p><strong>Hvordan det påvirker deg:</strong><br>
+            Hvis det oppstår feil her, kan du oppleve dårlig nettverkstilkobling eller datatap.</p>
+        </div>
 
-<footer>
-    <p>&copy; 2025 jahyecodes. Alle rettigheter reservert til bossman.</p>
-</footer>
+        <div class="section">
+            <h2>Lag 3: Nettverkslaget</h2>
+            <p><strong>Hva gjør det?</strong><br>
+            Dette laget sørger for å sende data over flere nettverk og håndterer ruting. Det bruker IP-adresser for å finne riktig destinasjon.</p>
+            <p><strong>Eksempler:</strong></p>
+            <ul>
+                <li>IP-adresser</li>
+                <li>Rutere</li>
+                <li>Routing-protokoller</li>
+            </ul>
+            <p><strong>Hvordan det påvirker deg:</strong><br>
+            Hvis rutere eller IP-innstillinger er feil, kan du ikke nå nettsteder eller andre nettverkstjenester.</p>
+        </div>
 
+        <h2>Oppsummert</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Lag</th>
+                    <th>Funksjon</th>
+                    <th>Eksempel</th>
+                    <th>Hvordan det påvirker deg</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Lag 1</td>
+                    <td>Fysisk overføring</td>
+                    <td>Kabler, signaler</td>
+                    <td>Nettverksforbindelsen fungerer eller ikke</td>
+                </tr>
+                <tr>
+                    <td>Lag 2</td>
+                    <td>Pålitelige dataoverføringer</td>
+                    <td>MAC-adresser, rammer</td>
+                    <td>Data kan bli ødelagt eller feile</td>
+                </tr>
+                <tr>
+                    <td>Lag 3</td>
+                    <td>Ruting og adressering</td>
+                    <td>IP-adresser, rutere</td>
+                    <td>Du kan ikke nå internett eller andre nettverk</td>
+                </tr>
+            </tbody>
+        </table>
 
-<script src="script.js"></script>
+        <p>Hvis du vil lære om hvordan man lager en VLAN i Cisco Packet Tracer, kan du bruke denne brukerveiledningen <a href="vlan.html" target="_blank">her</a>.</p>
+    </div>
 </body>
 </html>
