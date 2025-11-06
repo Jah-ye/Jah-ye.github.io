@@ -3,94 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>Brukerveiledning: OSI-modellen</title>
- <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            background-color: #f0f4f8;
-            color: #333;
-            margin: 40px;
-            line-height: 1.6;
-        }
-
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        h2 {
-            color: #2980b9;
-            border-bottom: 2px solid #2980b9;
-            padding-bottom: 8px;
-            margin-top: 40px;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 1em;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        th, td {
-            padding: 15px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-
-        th {
-            background-color: #3498db;
-            color: white;
-            font-weight: 600;
-        }
-
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        a {
-            color: #e74c3c;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        /* Responsiveness for mobile */
-        @media (max-width: 768px) {
-            body {
-                margin: 20px;
-            }
-            .container {
-                padding: 20px;
-            }
-            table {
-                font-size: 0.9em;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
     <div class="container">
@@ -101,47 +14,50 @@
             <p>OSI-modellen er en måte å forstå hvordan data beveger seg i et nettverk. Den deler opp prosessen i syv lag, hvor hvert lag har sin egen funksjon.</p>
         </div>
 
-        <div class="section">
-            <h2>Lag 1: Fysisk lag</h2>
-            <p><strong>Hva gjør det?</strong><br>
-            Dette er det laveste laget i modellen. Det handler om den fysiske overføringen av data, som kabler, kabling, signaler og maskinvare.</p>
-            <p><strong>Eksempler:</strong></p>
-            <ul>
-                <li>Ethernet-kabler</li>
-                <li>Signaler (elektriske, optiske)</li>
-                <li>Nettverkskort</li>
-            </ul>
-            <p><strong>Hvordan det påvirker deg:</strong><br>
-            Hvis det er problemer med kabler eller maskinvare, kan du oppleve tap av nettverkstilkobling.</p>
-        </div>
+<div class="section">
+    <h2>Lag 1: Fysisk lag</h2>
+    <p><strong>Hva gjør det?</strong><br>
+    Dette er det laveste laget i OSI-modellen. Det har ansvaret for den fysiske overføringen av data, som kabler, signaler og maskinvarekomponenter. Laget sørger for at elektriske eller optiske signaler sendes riktig over kabel eller annen fysisk media. Det omhandler også standarder for kabler, kontakter og signalstyrke, og sikrer at data kan overføres fysisk mellom enheter.</p>
+    <p><strong>Eksempler:</strong></p>
+    <ul>
+        <li>Ethernet-kabler og kontakter</li>
+        <li>Signaler (elektriske, optiske, radio)</li>
+        <li>Nettverkskort og porter</li>
+        <li>Hovedkort, USB-kabler, fiberoptikk</li>
+    </ul>
+    <p><strong>Hvordan det påvirker deg:</strong><br>
+    Problemer med kabler, kontakter eller maskinvare kan føre til at nettverket ikke fungerer i det hele tatt. Du kan oppleve at datamaskinen din ikke kan koble seg til nettet, eller at overføringshastigheten er svært lav. Fysisk skade på kabler eller maskinvarefeil kan være årsaken til nettverksbrudd.</p>
+</div>
 
-        <div class="section">
-            <h2>Lag 2: Data-link-laget</h2>
-            <p><strong>Hva gjør det?</strong><br>
-            Dette laget sørger for pålitelig overføring av data mellom to enheter i samme nettverk. Det håndterer feilkontroll og adressering (MAC-adresser).</p>
-            <p><strong>Eksempler:</strong></p>
-            <ul>
-                <li>Ethernet-rammer</li>
-                <li>MAC-adresser</li>
-                <li>Feilkontroll og feilretting</li>
-            </ul>
-            <p><strong>Hvordan det påvirker deg:</strong><br>
-            Hvis det oppstår feil her, kan du oppleve dårlig nettverkstilkobling eller datatap.</p>
-        </div>
+<div class="section">
+    <h2>Lag 2: Data-link-laget</h2>
+    <p><strong>Hva gjør det?</strong><br>
+    Dette laget sikrer at data overføres pålitelig mellom to enheter innenfor samme fysiske nettverk. Det håndterer adressering via MAC-adresser (Media Access Control), og sørger for at dataene er riktig pakket og feilkontroll er på plass. Laget organiserer data i rammer og sørger for at de ikke kolliderer med hverandre i delte medier, som Ethernet-nettverk.</p>
+    <p><strong>Eksempler:</strong></p>
+    <ul>
+        <li>Ethernet-rammer</li>
+        <li>MAC-adresser</li>
+        <li>Feilkontroll og feilretting</li>
+        <li>Switches og nettverkskort</li>
+    </ul>
+    <p><strong>Hvordan det påvirker deg:</strong><br>
+    Hvis det oppstår feil på dette laget, kan du oppleve ustabil nettverkstilkobling, pakker som forsvinner eller datatap. Dårlig kvalitet på kabler, feil konfigurasjon eller feil i nettverksutstyr kan føre til slike problemer.</p>
+</div>
 
-        <div class="section">
-            <h2>Lag 3: Nettverkslaget</h2>
-            <p><strong>Hva gjør det?</strong><br>
-            Dette laget sørger for å sende data over flere nettverk og håndterer ruting. Det bruker IP-adresser for å finne riktig destinasjon.</p>
-            <p><strong>Eksempler:</strong></p>
-            <ul>
-                <li>IP-adresser</li>
-                <li>Rutere</li>
-                <li>Routing-protokoller</li>
-            </ul>
-            <p><strong>Hvordan det påvirker deg:</strong><br>
-            Hvis rutere eller IP-innstillinger er feil, kan du ikke nå nettsteder eller andre nettverkstjenester.</p>
-        </div>
+<div class="section">
+    <h2>Lag 3: Nettverkslaget</h2>
+    <p><strong>Hva gjør det?</strong><br>
+    Nettverkslaget sørger for at data kan sendes mellom ulike nettverk, og håndterer ruting av data fra avsender til mottaker over internett eller andre store nettverk. Det bruker IP-adresser for å identifisere enheter på ulike nettverk, og velger den beste veien for dataene å nå destinasjonen gjennom rutere og rutingprotokoller.</p>
+    <p><strong>Eksempler:</strong></p>
+    <ul>
+        <li>IP-adresser</li>
+        <li>Rutere (routers)</li>
+        <li>Routing-protokoller (f.eks. BGP)</li>
+        <li>ICMP-protokollen (for ping og feilsøking)</li>
+    </ul>
+    <p><strong>Hvordan det påvirker deg:</strong><br>
+    Hvis rutere eller IP-konfigurasjoner er feil, kan du miste tilgang til nettsider, e-post eller andre nettverkstjenester. Feil i dette laget kan føre til at data ikke når frem, eller at forbindelsen blir usikker eller treg.</p>
+</div>
 
         <h2>Oppsummert</h2>
         <table>
