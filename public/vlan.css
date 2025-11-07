@@ -105,7 +105,6 @@ pre {
     margin: 10px 0;
 }
 
-/* For better mobile responsiveness */
 @media(max-width: 768px) {
     section {
         flex-direction: column;
